@@ -137,8 +137,8 @@ async def withdraw_amount(message: types.Message, state: FSMContext):
 async def admin_panel(callback: types.CallbackQuery):
     if callback.from_user.id != ADMIN_ID:
         return
-    await callback.message.edit_text("⚙️ Админ-панель:
-Команда для начисления: /addbalance user_id сумма")
+    await callback.message.edit_text(
+        "⚙️ Админ-панель:\nКоманда для начисления: /addbalance user_id сумма")
 
 @dp.message_handler(Command("addbalance"))
 async def admin_add_balance(message: types.Message):
