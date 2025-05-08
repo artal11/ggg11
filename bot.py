@@ -72,17 +72,9 @@ async def cmd_start(message: types.Message):
 async def profile_handler(callback: types.CallbackQuery):
     user_id = callback.from_user.id
     cursor.execute("SELECT balance FROM users WHERE id = ?", (user_id,))
-    result = cursor.fetchone()
-    if result is None:
-        await callback.message.edit_text("❌ Пользователь не найден в базе.")
-        return
-
-    balance = result[0] if result[0] is not None else 0
-
+    balance = cursor.fetchone()[0]
     await callback.message.edit_text(
-        f"👤 Ваш профиль:\nID: {user_id}\nБаланс: {balance}₽"
-    )
-
+        f"👤 Ваш профиль: ID: {user_id} Баланс: {balance}₽")
 
 @dp.callback_query_handler(lambda c: c.data == "balance")
 async def balance_handler(callback: types.CallbackQuery):
