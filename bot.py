@@ -9,7 +9,7 @@ import sqlite3
 import logging
 
 API_TOKEN = '7111326832:AAH2M8UHYK1X2Mh_V_vwnO59vAx23ird6-U'
-ADMIN_ID = 123456789  # Замените на свой Telegram ID
+ADMIN_ID = 7139336638  # Замените на свой Telegram ID
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN)
