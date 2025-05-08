@@ -98,8 +98,9 @@ async def history_handler(callback: types.CallbackQuery):
         text = "История пуста."
     else:
         text = "\n".join([f"{a} на {amt}₽ — {t}" for a, amt, t in rows])
-    await callback.message.edit_text(f"📜 История сделок:
-{text}")
+    await callback.message.edit_text(
+        f"📜 История сделок:\n{text}"
+    )
 
 # --- Вывод средств ---
 @dp.callback_query_handler(lambda c: c.data == "withdraw")
