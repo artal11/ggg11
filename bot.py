@@ -88,7 +88,7 @@ async def referral_handler(callback: types.CallbackQuery):
     count = cursor.fetchone()[0]
     await callback.message.edit_text(f"👥 Вы пригласили: {count} пользователей
 Реферальная ссылка:
-t.me/YourBotUsername?start={user_id}")
+t.me/artalGARANT_bot?start={user_id}")
 
 @dp.callback_query_handler(lambda c: c.data == "history")
 async def history_handler(callback: types.CallbackQuery):
