@@ -73,7 +73,6 @@ async def profile_handler(callback: types.CallbackQuery):
     user_id = callback.from_user.id
     cursor.execute("SELECT balance FROM users WHERE id = ?", (user_id,))
     result = cursor.fetchone()
-
     if result is None:
         await callback.message.edit_text("❌ Пользователь не найден в базе.")
         return
